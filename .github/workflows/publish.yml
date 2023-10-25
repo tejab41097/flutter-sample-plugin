@@ -34,3 +34,7 @@ jobs:
       - name: Change directory to example & Create Android Demo App
         working-directory: ./example
         run: flutter build apk
+
+      - name: Change directory to example & Create iOS Demo App
+        working-directory: ./example
+        run: flutter build ios --release --no-codesign
