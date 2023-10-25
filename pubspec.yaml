@@ -1,6 +1,6 @@
 name: sample_plugin_pp
 description: Sample package created for testing CI/CD pipeline nothing else.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com
 
 environment:
