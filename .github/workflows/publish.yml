@@ -35,6 +35,20 @@ jobs:
         working-directory: ./example
         run: flutter build apk
 
+      - name: upload apk
+        uses: actions/upload-artifact@v2
+        working-directory: ./example
+        with:
+          name: release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
       - name: Change directory to example & Create iOS Demo App
         working-directory: ./example
         run: flutter build ios --release --no-codesign
+
+      - name: upload ios app
+        uses: actions/upload-artifact@v2
+        working-directory: ./example
+        with:
+          name: release.app
+          path: build/ios/iphoneos/Runner.app
