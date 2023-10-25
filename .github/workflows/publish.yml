@@ -8,9 +8,27 @@ on:
       - main
 
 jobs:
-  publish:  
+  publish:
     permissions:
       id-token: write # Required for authentication using OIDC
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    # with:
-    #   working-directory: path/to/package/within/repository
+    runs-on: macos-latest
+    steps:
+      - name: Flutter Check
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.0'
+          channel: 'stable'
+          architecture: x64
+
+      - name: flutter version
+      - run: flutter --version
+
+      - name: flutter pub get
+      - run: flutter pub get
+
+      - name: Publish Dry run
+        run: flutter pub publish --dry-run
+
+      - name: Flutter Publish
+        run: flutter pub publish
