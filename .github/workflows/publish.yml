@@ -23,4 +23,14 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter pub publish --dry-run
-      - run: flutter pub publish --force
+#      - run: flutter pub publish --force
+
+      - name: Setup Java
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+
+      - name: Change directory to example & Create Android Demo App
+        working-directory: ./example
+        run: flutter build apk
