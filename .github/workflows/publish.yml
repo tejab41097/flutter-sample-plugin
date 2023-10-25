@@ -21,8 +21,8 @@ jobs:
           architecture: x64
       - run: flutter --version
       - run: flutter pub get
-      - run: dart pub publish --dry-run
-      - run: dart pub publish --force
+      - run: flutter pub publish --dry-run
+      - run: flutter pub publish --force
 
 #      - name: Setup Java
 #        uses: actions/setup-java@v2
