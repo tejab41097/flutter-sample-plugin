@@ -16,6 +16,7 @@ jobs:
       - name: Flutter Check
         uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
+      - uses: flutter-actions/setup-flutter@v2
         with:
           flutter-version: '3.0.0'
           channel: 'stable'
@@ -23,30 +24,30 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter pub publish --dry-run
-#      - run: flutter pub publish --force
+      - run: flutter pub publish --force
 
-      - name: Setup Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: '11'
-
-      - name: Change directory to example & Create Android Demo App
-        working-directory: ./example
-        run: flutter build apk
-
-      - name: upload apk
-        uses: actions/upload-artifact@v2
-        with:
-          name: release.apk
-          path: example/build/app/outputs/flutter-apk/app-release.apk
-
-      - name: Change directory to example & Create iOS Demo App
-        working-directory: ./example
-        run: flutter build ios --release --no-codesign
-
-      - name: upload ios app
-        uses: actions/upload-artifact@v2
-        with:
-          name: release.app
-          path: example/build/ios/iphoneos/Runner.app
+#      - name: Setup Java
+#        uses: actions/setup-java@v2
+#        with:
+#          distribution: 'zulu'
+#          java-version: '11'
+#
+#      - name: Change directory to example & Create Android Demo App
+#        working-directory: ./example
+#        run: flutter build apk
+#
+#      - name: upload apk
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: release.apk
+#          path: example/build/app/outputs/flutter-apk/app-release.apk
+#
+#      - name: Change directory to example & Create iOS Demo App
+#        working-directory: ./example
+#        run: flutter build ios --release --no-codesign
+#
+#      - name: upload ios app
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: release.app
+#          path: example/build/ios/iphoneos/Runner.app
