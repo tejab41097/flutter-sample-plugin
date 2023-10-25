@@ -13,22 +13,21 @@ jobs:
       id-token: write # Required for authentication using OIDC
     runs-on: macos-latest
     steps:
-      - name: Flutter Check
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.0.0'
-          channel: 'stable'
-          architecture: x64
+    - name: Flutter Check
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.0.0'
+        channel: 'stable'
+        architecture: x64
+    - name: flutter version
+    - run: flutter --version
 
-      - name: flutter version
-      - run: flutter --version
+    - name: flutter pub get
+    - run: flutter pub get
 
-      - name: flutter pub get
-      - run: flutter pub get
+    - name: Publish Dry run
+    - run: flutter pub publish --dry-run
 
-      - name: Publish Dry run
-        run: flutter pub publish --dry-run
-
-      - name: Flutter Publish
-        run: flutter pub publish
+    - name: Flutter Publish
+    - run: flutter pub publish
