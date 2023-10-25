@@ -37,10 +37,9 @@ jobs:
 
       - name: upload apk
         uses: actions/upload-artifact@v2
-        working-directory: ./example
         with:
           name: release.apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: example/build/app/outputs/flutter-apk/app-release.apk
 
       - name: Change directory to example & Create iOS Demo App
         working-directory: ./example
@@ -48,7 +47,6 @@ jobs:
 
       - name: upload ios app
         uses: actions/upload-artifact@v2
-        working-directory: ./example
         with:
           name: release.app
-          path: build/ios/iphoneos/Runner.app
+          path: example/build/ios/iphoneos/Runner.app
