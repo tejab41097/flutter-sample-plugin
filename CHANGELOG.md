@@ -7,3 +7,6 @@
 ## 0.0.3
 
 * Gitlab pipeline with flutter.
+## 0.0.4
+
+* Private Repo Pipeline.
