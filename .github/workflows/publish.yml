@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Flutter Check
         uses: actions/checkout@v3
+        token: ${{ secrets.TOKEN }}
       - uses: dart-lang/setup-dart@v1
       - uses: subosito/flutter-action@v2
         with:
